@@ -3,6 +3,7 @@ import TransferTRX from './components/TransferTRX';
 import TransferTRC20 from './components/TransferTRC20';
 import TransferTRC721 from './components/TransferTRC721';
 import TransferTRC10 from './components/TransferTRC10';
+import ApproveTRC20 from './components/ApproveTRC20';
 import { useLocale } from '../../hooks/useLocale';
 import styles from './Transfer.module.scss';
 
@@ -50,6 +51,11 @@ export default function Transfer() {
             key: '4',
             label: t('Transfer') + ' TRC10',
             children: <TransferTRC10 />,
+        },
+        {
+            key: '5',
+            label: t('Approve') + ' TRC20',
+            children: <ApproveTRC20 />,
         },
     ];
 

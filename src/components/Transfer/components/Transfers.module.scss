@@ -10,6 +10,12 @@
     margin-bottom: var(--tdq-margin-small);
 }
 
+.hint {
+    margin-bottom: var(--tdq-margin-xsmall);
+    font-size: var(--tdq-font-size-small);
+    color: var(--tdq-color-secondary, #666);
+}
+
 .inputNumber {
     vertical-align: middle;
 }

@@ -10,6 +10,7 @@ interface SelectProps<OptionsType extends { label: string; value: string }[]> {
     unit?: string;
     className?: string;
     options: OptionsType;
+    value?: string;
     onChange?: (value: OptionsType[number]['value']) => void;
     required?: boolean;
     size?: 'small' | 'normal';
@@ -40,6 +41,7 @@ function Select<OptionsType extends { label: string; value: string }[]>(props: S
                     style={{ width: '100%' }}
                     suffixIcon={<img src={SelectDropdownIcon} className={styles['select-dropdownIcon']} />}
                     placeholder={props.placeholder}
+                    value={props.options.length ? (props.value ?? undefined) : undefined}
                     onChange={props.onChange}
                     options={props.options}
                 ></AntdSelect>

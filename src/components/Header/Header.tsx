@@ -19,6 +19,10 @@ const HeaderNav: FC = () => {
                 return 0;
             case '/delegate':
                 return 1;
+            case '/merchant-charge':
+                return 2;
+            default:
+                return -1;
         }
     }, [location]);
     return (
@@ -38,6 +42,14 @@ const HeaderNav: FC = () => {
                 })}
             >
                 {t('Delegate')}
+            </Link>
+            <Link
+                to="/merchant-charge"
+                className={clsx(styles.headerNavItem, {
+                    [styles.headerNavItemActive]: activeIndex === 2,
+                })}
+            >
+                {t('MerchantCharge')}
             </Link>
         </div>
     );

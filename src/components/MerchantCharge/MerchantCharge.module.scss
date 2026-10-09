@@ -1,0 +1,60 @@
+.container {
+    padding: var(--tdq-padding-medium);
+}
+
+.input {
+    margin-bottom: var(--tdq-margin-small);
+}
+
+.submit {
+    all: unset;
+    display: block;
+    width: 100%;
+    background-color: var(--tdq-background-color-accent);
+    border-radius: var(--tdq-border-radius-small);
+    padding: 15px 0;
+    text-align: center;
+    font-size: var(--tdq-font-size-large);
+    font-weight: 700;
+    color: var(--tdq-color-button);
+    cursor: pointer;
+    margin-top: var(--tdq-margin-small);
+
+    &:hover {
+        background-color: var(--tdq-background-color-accent-hover);
+    }
+
+    &[disabled] {
+        background-color: var(--tdq-background-color6);
+        cursor: not-allowed;
+    }
+}
+
+.queryResult {
+    background-color: var(--tdq-background-color2);
+    padding: var(--tdq-padding-medium);
+    border-radius: var(--tdq-border-radius-small);
+    margin-bottom: var(--tdq-margin-medium);
+}
+
+.queryItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--tdq-padding-small) 0;
+    
+    &:not(:last-child) {
+        border-bottom: 1px solid var(--tdq-background-color3);
+    }
+}
+
+.queryLabel {
+    font-weight: 600;
+    color: var(--tdq-color-text-secondary);
+}
+
+.queryValue {
+    font-weight: 700;
+    font-size: var(--tdq-font-size-large);
+    color: var(--tdq-color-text-primary);
+}

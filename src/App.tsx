@@ -15,6 +15,7 @@ import {
 import Routes from './router';
 import { useDarkTheme, DarkThemeContext } from './hooks/useDarkTheme';
 import { useLocale } from './hooks/useLocale';
+import { logWalletExtensions } from './utils/checkWalletExtension';
 import zh_TW from 'antd/es/locale/zh_TW';
 import en_US from 'antd/es/locale/en_US';
 import './App.css';
@@ -47,9 +48,22 @@ const AntdProvider: FC<PropsWithChildren> = ({ children }) => {
 
 function App() {
     const adapters = useMemo(() => {
+        // 开发环境下输出钱包扩展检测信息
+        if (import.meta.env.DEV) {
+            // 延迟一下，确保扩展有时间注入
+            setTimeout(() => {
+                logWalletExtensions();
+            }, 1000);
+        }
+        
         return [
             new TronLinkAdapter(),
-            new TokenPocketAdapter(),
+            // TokenPocketAdapter: 增加检测超时时间，给扩展更多加载时间
+            // 如果扩展已安装但检测不到，请刷新页面
+            new TokenPocketAdapter({
+                checkTimeout: 5000, // 增加到 5 秒，给扩展更多加载时间
+                // openUrlWhenWalletNotFound 保持默认 true，未安装时跳转到官网
+            }),
             new OkxWalletAdapter(),
             new BitKeepAdapter(),
             new TrustAdapter(),
